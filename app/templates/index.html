@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>テスト掲示板</title>
+    <link rel="stylesheet" href="../static/css/style.css?{{ q }}">
+    <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru&amp;subset=japanese" rel="stylesheet">
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1 id="main-title">
+        <a href="{{ url_for('index') }}">
+          テスト掲示板
+        </a>
+      </h1>
+      <div id="main-area">
+        {% if output %}
+          <div class="area">
+            <h2 class="heading">スレッド一覧</h2>
+            <table id="content-table">
+              <tr>
+                <th class="date">日付</th>
+                <th class="title">タイトル</th>
+                <th class="content">内容</th>
+                <th class="comment">コメント数</th>
+                <th class="detail">詳細</th>
+              </tr>
+              {% for item in output %}
+                <tr class="item">
+                  <td class="date">
+                    <span class="item-span">{{ item.pub_date }}</span>
+                  </td>
+                  <td class="title left-text">
+                    <span class="item-span">{{ item.title }}</span>
+                  </td>
+                  <td class="content left-text">
+                    <span class="item-span">{{ item.content }}</span>
+                  </td>
+                  <td class="comment">
+                    <span class="item-span">{{ output[item] }}</span>
+                  </td>
+                  <td class="detail">
+                    <form class="detail-form" action="{{ url_for('detail', id=item.id) }}" method="post" target="_blank">
+                      <button class="detail-btn" type="submit" name="button">スレッドを開く</button>
+                    </form>
+                  </td>
+                </tr>
+              {% endfor %}
+            </table>
+          </div>
+        {% else %}
+          <p id="empty">投稿がありません</p>
+        {% endif %}
+        <div class="area">
+          <h2 class="heading">投稿フォーム</h2>
+          {% if error %}
+            <div class="error-margin" id="error-area">
+              <span id="error">{{ error }}</span>
+            </div>
+          {% endif %}
+          <form id="input-form" action="post" method="post">
+            <div id="input-items">
+              <span class="sub-heading">タイトル：</span><input id="title" type="text" name="title" value="{{ title }}" autocomplete="off">
+              <span class="sub-heading">パスワード：</span><input id="password" type="password" name="password" minlength="4">
+              <span class="sub-heading content-heading">内容：</span><textarea id="content" name="content" placeholder="誹謗中傷は避けてください。">{{ content }}</textarea>
+              <button id="submit-btn" type="submit" name="button">スレッドを作成</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

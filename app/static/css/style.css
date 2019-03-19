@@ -1,0 +1,288 @@
+@charset "UTF-8";
+
+body{
+  background-image: url("../images/main-img.jpg");
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+*{
+  font-family: 'Kosugi Maru', sans-serif;
+}
+
+.clearfix::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.wrapper{
+  width: 960px;
+  margin: 10px auto;
+  text-align: center;
+}
+
+#main-area{
+  box-sizing: border-box;
+}
+
+.area{
+  background-color: #66FF99;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 5px;
+}
+
+#main-title{
+  color: black;
+  margin: 0 0 10px;
+}
+
+#main-title a{
+  text-decoration: none;
+}
+
+#main-title a:link,
+#main-title a:visited,
+#main-title a:hover,
+#main-title a:active,
+#main-title a:focus{
+  color: white;
+}
+
+
+.heading{
+  margin: 0;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.sub-heading{
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.content-heading{
+  margin-bottom: 5px;
+}
+
+#input-form{
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+#input-items{
+  width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+#title{
+  box-sizing: border-box;
+  display: inline-block;
+  width: 350px;
+  margin: 0 20px 0 0;
+  padding: 5px;
+  font-size: 15px;
+}
+
+#password{
+  padding: 3px;
+  font-size: 15px;
+}
+
+#content{
+  box-sizing: border-box;
+  display: block;
+  margin: 0;
+  padding: 10px;
+  width: 100%;
+  height: 100px;
+  font-size: 15px;
+}
+
+#submit-btn{
+  width: 100%;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3366CC;
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#submit-btn:hover{
+  background-color: #3333CC;
+}
+
+#content-table{
+  display: inline-block;
+  border-collapse: collapse;
+  height: 120px;
+  overflow-y: scroll;
+}
+
+#content-table::-webkit-scrollbar{
+  width: 10px;
+}
+#content-table::-webkit-scrollbar-track{
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#content-table::-webkit-scrollbar-thumb{
+  border-radius: 2px;
+  background-color: #DCDCDC;
+}
+
+.item{
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-left: 8px solid #006633;
+  padding-right: 20px;
+}
+
+.date, .title, .content, .comment, .detail{
+  max-width: 250px;
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+.comment{
+  text-align: center;
+}
+
+.item-span{
+  display: inline-block;
+}
+
+.left-text{
+  text-align: left;
+}
+
+.detail-form{
+  display: inline-block;
+  width: 100px;
+  height: 25px;
+  margin: 0 auto;
+}
+
+.detail-btn{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 3px;
+  background-color: #FF8C00;
+  color: white;
+  font-size: 12.5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.detail-btn:hover{
+  background-color: #FF5F17;
+}
+
+.thread{
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.thread-title-area{
+  background-color: #2F4F4F;
+  margin-bottom: 10px;
+}
+
+#thread-title{
+  margin: 0;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.delete-form{
+  float: right;
+  display: inline-block;
+  width: 280px;
+  height: 45px;
+}
+
+.delete-btn{
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 5px;
+  background-color: #FF3333;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.delete-btn:hover{
+  background-color: #CC0000;
+}
+
+#poster{
+  border: 2px solid rgba(0, 0, 0, 0.95);
+}
+
+.res{
+  background-color: white;
+  text-align: left;
+  box-sizing: border-box;
+  margin-top: 15px;
+  padding: 10px 10px 0;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.res-num{
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.res-name{
+  display: inline-block;
+  margin-right: 5px;
+  color: #191970;
+  font-weight: bold;
+}
+
+#check-password{
+  display: inline-block;
+  width: 150px;
+  margin-right: 7px;
+  padding: 3px;
+  font-size: 15px;
+}
+
+#error-area{
+  background-color: rgba(204, 10, 15, 0.7);
+  transition: 0.1s;
+  padding: 5px;
+  color: #F3FFD8;
+  font-weight: bold;
+}
+
+/*
+コメント
+*/
+.responser-area{
+
+}
+
+.post-res-area{
+  margin-top: 30px;
+}

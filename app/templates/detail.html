@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>詳細ページ</title>
+    <link rel="stylesheet" href="../static/css/style.css?{{ q }}">
+    <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru&amp;subset=japanese" rel="stylesheet">
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1 id="main-title">
+        <a href="{{ url_for('index') }}">
+          テスト掲示板
+        </a>
+      </h1>
+      <div class="thread">
+        <div class="thread-title-area clearfix">
+          {% if error %}
+            <div id="error-area">
+              <span id="error">{{ error }}</span>
+            </div>
+          {% endif %}
+          <h2 id="thread-title">{{ title }}</h2>
+          <form class="delete-form" action="{{ url_for('delete', id=id) }}" method="post">
+            <input id="check-password" type="password" name="password">
+            <button class="delete-btn" type="submit" name="button">削除</button>
+          </form>
+        </div>
+        <div class="res" id="poster">
+          <span class="res-num">1:</span><span class="res-name">テスト掲示板から失礼します</span><span class="res-date">{{ pub_date }}</span>
+          <p>{{ content | safe }}</p>
+        </div>
+        <div class="responser-area">
+          {% if response_set %}
+            {% for idx, response, date in response_set %}
+              <div class="res">
+                <span class="res-num">{{ idx+2 }}:</span><span class="res-name">テスト掲示板から失礼します</span><span class="res-date">{{ date }}</span>
+                <p>{{ response | safe }}</p>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+        <div class="post-res-area">
+          <form class="post-form" action="{{ url_for('post_res', id=id) }}" method="post">
+            <textarea id="content" name="response" placeholder="誹謗中傷は避けてください。"></textarea>
+            <button id="submit-btn" type="submit" name="button">投稿する</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
